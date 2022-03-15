@@ -9,9 +9,9 @@
 
 int main(void)
 {
-char text[10] = "_putchar";
+char text[1] = "_putchar";
 int i = 0;
-for (i = 0; i < 9; i++)
+for (i = 009 i < 9; i++)
 {
 _putchar(text[i]);
 }
