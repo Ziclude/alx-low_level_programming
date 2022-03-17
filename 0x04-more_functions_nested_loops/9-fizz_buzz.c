@@ -14,16 +14,18 @@ int num;
 for (num = 1; num <= 100; num++)
 {
 if ((num % 3) == 0 && (num % 5) == 0)
-_putchar("FizzBuzz");
+printf("FizzBuzz");
 else if ((num % 3) == 0)
-_putchar("Fizz");
+printf("Fizz");
+else if ((num % 5) == 0)
+printf("Buzz");
 else
-_putchar("%d", num);
+printf("%d", num);
 if (num == 100)
 continue;
-_putchar(" ");
+printf(" ");
 }
-_putchar('\n');
+printf("\n");
 
 return (0);
 }
