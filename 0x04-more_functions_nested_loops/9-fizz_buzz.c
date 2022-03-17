@@ -9,23 +9,21 @@
 
 int main(void)
 {
-int n;
+int num;
 
-for (n = 1; n < 101; n++)
+for (num = 1; num <= 100; num++)
 {
-if (n % 5 == 0 && n % 3 == 0)
-printf("FizzBuzz");
-else if (n % 5 == 0)
-if (n == 100)
-printf("Buzz");
+if ((num % 3) == 0 && (num % 5) == 0)
+_putchar("FizzBuzz");
+else if ((num % 3) == 0)
+_putchar("Fizz");
 else
-printf("Buzz");
-else if (n % 3 == 0)
-printf("Fizz ");
-else
-printf("%d ", n);
+_putchar("%d", num);
+if (num == 100)
+continue;
+_putchar(" ");
 }
-printf("\n");
+_putchar('\n');
 
 return (0);
 }
