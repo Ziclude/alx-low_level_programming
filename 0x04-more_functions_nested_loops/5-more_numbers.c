@@ -29,7 +29,7 @@ limit = '4';
 n = '0';
 }
 _putchar('\n');
-repeat = 0;
+repeat = '0';
 n = '0';
 limit = '9';
 }
