@@ -11,9 +11,9 @@ void more_numbers(void)
 int line, n, repeat, limit;
 n = '0';
 repeat = '0';
-limit = '9';
+limit = '10';
 
-for (line = 0; line < 10; line++)
+for (line = 0; line < 11; line++)
 {
 while (repeat < 2)
 {
