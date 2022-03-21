@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -10,15 +9,22 @@
 
 int main(void)
 {
-int sum;
-char c;
+int i, sum, n;
+int pass[100];
+sum = 0;
 srand(time(NULL));
-while (sum <= 2645)
+for (i = 0; i < 100; i++)
 {
-c = rand() % 128;
-sum += c;
-putchar(c);
+pass[i] = rand() % 78;
+sum += (pass[i] + '0');
+putchar(pass[i] + '0');
+if ((2772 - sum)-'0' < 78)
+{
+n = 2772 - sum - '0';
+sum += n;
+putchar(n + '0');
+break;
 }
-putchar(2772 - sum);
+}
 return (0);
 }
