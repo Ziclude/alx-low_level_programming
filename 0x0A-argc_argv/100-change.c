@@ -5,61 +5,75 @@
 #include <stdbool.h>
 
 /**
- * coinConverter - Helper function that does all the mathematics
- * @i: Passed in variable from main for calculations
- * Return: The number of coins needed minimum for the passed in variable
+ * make_change - finds least number of coins
+ * @n: money amount
+ * Return: number of coins
  */
 
-int coinConverter(int i)
+int make_change(int n)
 {
-int count = 0;
-while (i != 0)
+int coins, quarters, dimes, nickels, twocents, pennies;
+coins = 0;
+quarters = 0;
+dimes = 0;
+nickels = 0;
+twocents = 0;
+pennies = 0;
+while (n > 0)
 {
-if (i % 10 == 9 || i % 10 == 7)
-i -= 2;
-else if (i % 25 == 0)
-i -= 25;
-else if (i % 10 == 0)
-i -= 10;
-else if (i % 5 == 0)
-i -= 5;
-else if (i % 2 == 0)
+if (n >= 25)
 {
-if (i % 10 == 6)
-i -= 1;
-else
-i -= 2;
+n -= 25;
+quarters += 1;
+}
+else if (n >= 10)
+{
+n -= 10;
+dimes += 1;
+}
+else if (n >= 5)
+{
+n -= 5;
+nickels += 1;
+}
+else if (n >= 2)
+{
+n -= 2;
+twocents += 1;
 }
 else
-i -= 1;
-count++;
+{
+n -= 1;
+pennies += 1;
 }
-return (count);
+}
+coins = quarters + dimes + nickels + twocents + pennies;
+return (coins);
 }
 
 /**
- * main - Takes in exactly one argument for minimum coin count
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
+ * main - prints minimum number of coins to make change
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: (0)
  */
 
 int main(int argc, char *argv[])
 {
-int i, coin;
-coin = 0;
+int coins;
 if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
-i = atoi(argv[1]);
-if (i < 0)
+else if (atoi(argv[1]) < 0)
+{
 printf("0\n");
+}
 else
 {
-coin = coinConverter(i);
-printf("%d\n", coin);
+coins = make_change(atoi(argv[1]));
+printf("%d\n", coins);
 }
 return (0);
 }
