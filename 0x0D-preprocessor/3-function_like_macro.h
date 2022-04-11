@@ -6,8 +6,9 @@
  * Desc: header file that defines a function-like macro
  *     that computes the absolute value of a number x.
  *
+ * @x: number to verify
  */
 
-#define ABS(X) ((x) < 0 ? (-x) : (x))
+#define ABS(x) ((x) < 0 ? (-x) : (x))
 
 #endif
