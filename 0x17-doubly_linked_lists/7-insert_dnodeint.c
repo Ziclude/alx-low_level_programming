@@ -11,38 +11,24 @@
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-dlistint_t *nouvnode;
-dlistint_t *bridge;
-unsigned int stp;
-if (h == NULL)
-return (NULL);
-nouvnode = malloc(sizeof(dlistint_t));
-if (nouvnode == NULL)
-return (NULL);
-nouvnode->n = n;
+dlistint_t *top = *h, *nouv;
 if (idx == 0)
+return (add_dnodeint(h, n));
+for (; idx != 1; idx--)
 {
-nouvnode->next = *h;
-nouvnode->prev = NULL;
-if (nouvnode->next != NULL)
-nouvnode->next->prev = nouvnode;
-*h = nouvnode;
-}
-else
-{
-bridge = *h;
-for (stp = 0; bridge != NULL && stp < (idx - 1); stp++)
-bridge = bridge->next;
-if (bridge == NULL)
-{
-free(nouvnode);
+top = top->next;
+if (top == NULL)
 return (NULL);
 }
-nouvnode->next = bridge->next;
-nouvnode->prev = bridge;
-if (bridge->next != NULL)
-bridge->next->prev = nouvnode;
-bridge->next = nouvnode;
-}
-return (nouvnode);
+if (top->next == NULL)
+return (add_dnodeint_end(h, n));
+nouv = malloc(sizeof(dlistint_t));
+if (nouv == NULL)
+return (NULL);
+nouv->n = n;
+nouv->prev = top;
+nouv->next = top->next;
+top->next->prev = nouv;
+top->next = nouv;
+return (nouv);
 }
