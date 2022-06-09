@@ -22,7 +22,7 @@ pad = pad->next;
 if (pad == *head)
 {
 *head = pad->next;
-if(*head != NULL)
+if (*head != NULL)
 (*head)->prev = NULL;
 }
 else
